@@ -15,9 +15,8 @@ import TodoItem from "./TodoItem";
 function TodoBoard({todoList, delItem}){
         return(
             <div>
-                <h1>Todo List</h1>
                 {/* <TodoItem/> */}
-                {todoList.map((item, index) => <TodoItem key={index} item={item} delItem={delItem} />)}
+                {todoList.map((index) => <TodoItem key={index.id} item={index} delItem={delItem} />)}
             </div>
         )
     }

@@ -1,5 +1,49 @@
+body{
+  background-color: #7C8EA6;
+}
+
+.box-line{
+  border: 5px solid #A6948D;
+  background-color: #F2E3D5;
+  /* border-radius: 25px; */
+  padding: 6px 16px;
+  margin: 80px;
+  width: 600px;
+  height: 700px;
+  overflow-y: auto;
+  display: flex; /* 플렉스 컨테이너로 설정 */
+  align-items: center; /* 가로 중앙 정렬 */
+  flex-direction: column; /* 하위 요소들을 세로로 정렬 */
+}
+
+.input-container{
+  display: flex; /* 가로 정렬 */
+}
+
+.todo-input{
+  width: 400px;
+  padding: 6px 16px;
+  margin-right: 6px;
+}
+
 .todo-item{
-  width: 300px;
-  height: 50px;
-  border: 1px solid lightblue;
+  width: 500px;
+  border-bottom: 2px solid #594E4D;
+  display: flex;
+  padding: 10px 0;
+}
+
+.item-checkbox{
+  width: 10%;
+}
+
+.item-text{
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.item-del-button{
+  width: 10%;
+  text-align: right;
 }
