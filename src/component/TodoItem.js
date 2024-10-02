@@ -17,8 +17,9 @@ function TodoItem({item, delItem}){
     return(
         <div className='todo-item'>
             <Checkbox {...label} className='item-checkbox' checked={checked} onChange={handleCheck}/>
-            <span className='item-text' style={{ textDecoration: checked ? 'line-through' : 'none' }}>
-                {item.text}
+            <span className='item-text-container'>
+                <div className='item-text' style={{ textDecoration: checked ? 'line-through' : 'none' }}>{item.text}</div>
+                <div className='item-date'>{item.date}</div>
             </span>
             <IconButton aria-label='delete' className='item-del-button' onClick={() => delItem(item.id)}>
                 <DeleteIcon />

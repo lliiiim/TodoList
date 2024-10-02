@@ -16,7 +16,8 @@ function TodoBoard({todoList, delItem}){
         return(
             <div>
                 {/* <TodoItem/> */}
-                {todoList.map((index) => <TodoItem key={index.id} item={index} delItem={delItem} />)}
+                {/* {todoList.map((index) => <TodoItem key={index.id} item={index} delItem={delItem} />)} */}
+                {[...todoList].reverse().map((item) => (<TodoItem key={item.id} item={item} delItem={delItem} />))}
             </div>
         )
     }

@@ -20,9 +20,13 @@ function App() {
     
     if (inputValue.trim() === '') return; // 빈값 추가 안 함
     
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}.${currentDate.getMonth() + 1}.${currentDate.getDate()}`;
+    
     const newItem = {
       id: nextId.current,
-      text: inputValue
+      text: inputValue,
+      date : formattedDate
     };
     
     setTodoList([...todoList, newItem]) // 기존 todoList + inputValue
@@ -30,7 +34,7 @@ function App() {
     
     nextId.current += 1; 
   }
-
+console.log(todoList)
   const enterKey = (e) => {
     if(e.key === 'Enter'){
       addItem();
@@ -43,14 +47,16 @@ function App() {
   }
   return (
     <div className='box-line'>
-      <h1>Todo List</h1>
-      <div className="input-container">
+      <h1>{todoList.length > 0 ? `오늘 할 일 ${todoList.length}개 🤓` : '오늘의 할 일은? 🤔'}</h1>
+      <div className='input-container'>
         {/* <input type='text' onChange={(event)=>console.log(event.target.value)}/> */}
         <input className='todo-input' value={inputValue} type='text' placeholder='여기에 작성하삼' onChange={(e)=>setInputValue(e.target.value)} onKeyDown={(e)=>enterKey(e)}/>
         {/* <button onClick={addItem}>추가</button> */}
         <Button variant='contained' style={{backgroundColor: '#A6948D'}} onClick={addItem}>추가</Button>
       </div>
-      <TodoBoard todoList={todoList} delItem={delItem}/>
+      <div className='list-container'>
+        <TodoBoard todoList={todoList} delItem={delItem}/>
+      </div>
     </div>
   );
 }

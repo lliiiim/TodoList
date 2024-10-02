@@ -1,18 +1,19 @@
 body{
   background-color: #7C8EA6;
+  display: flex;
+  justify-content: center;
 }
 
 .box-line{
   border: 5px solid #A6948D;
   background-color: #F2E3D5;
-  /* border-radius: 25px; */
+  border-radius: 10px;
   padding: 6px 16px;
   margin: 80px;
-  width: 600px;
+  width: 700px;
   height: 700px;
-  overflow-y: auto;
-  display: flex; /* 플렉스 컨테이너로 설정 */
-  align-items: center; /* 가로 중앙 정렬 */
+  display: flex; 
+  align-items: center;
   flex-direction: column; /* 하위 요소들을 세로로 정렬 */
 }
 
@@ -20,14 +21,19 @@ body{
   display: flex; /* 가로 정렬 */
 }
 
+.list-container{
+  margin-top: 3px;
+  overflow-y: auto;
+}
+
 .todo-input{
-  width: 400px;
+  width: 500px;
   padding: 6px 16px;
   margin-right: 6px;
 }
 
 .todo-item{
-  width: 500px;
+  width: 600px;
   border-bottom: 2px solid #594E4D;
   display: flex;
   padding: 10px 0;
@@ -37,9 +43,21 @@ body{
   width: 10%;
 }
 
-.item-text{
+.item-text-container{
   width: 80%;
   display: flex;
+  align-items: center;
+}
+
+.item-text{
+  width: 80%;
+  word-break: break-all; /* 긴 단어가 끊기도록 설정 */
+}
+
+.item-date{
+  width: 20%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
