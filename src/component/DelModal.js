@@ -9,15 +9,13 @@ const btnStyles = makeStyles({
     }
 });
 
-function DelModal({ delItem, isOpen, onClose, children }){
-    if (!isOpen) return null;
-    
+function DelModal({ delItem, onClose, children }){
     const btnStyle = btnStyles();
 
     return(
-        <div onClick={onClose} className="modal-overlay">
-            <div onClick={(e)=>e.stopPropagation()} className="modal">
-                <button onClick={onClose} className="modal-close">❌</button>
+        <div onClick={onClose} className='modal-overlay'>
+            <div onClick={(e)=>e.stopPropagation()} className='modal'>
+                <button onClick={onClose} className='modal-close'>❌</button>
                 {children}
                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Button className={btnStyle.root} variant='contained' style={{backgroundColor: '#594E4D'}} onClick={delItem}>삭제</Button>
