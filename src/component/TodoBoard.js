@@ -12,12 +12,12 @@ import TodoItem from "./TodoItem";
 //     )
 // }
 
-function TodoBoard({todoList, delItem}){
+function TodoBoard({todoList, delItem, updateComplete}){
         return(
             <div>
                 {/* <TodoItem/> */}
                 {/* {todoList.map((index) => <TodoItem key={index.id} item={index} delItem={delItem} />)} */}
-                {[...todoList].reverse().map((item) => (<TodoItem key={item.id} item={item} delItem={delItem} />))}
+                {[...todoList].reverse().map((item) => (<TodoItem key={item.id} item={item} delItem={delItem} updateComplete={updateComplete} />))}
             </div>
         )
     }

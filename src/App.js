@@ -26,7 +26,8 @@ function App() {
     const newItem = {
       id: nextId.current,
       text: inputValue,
-      date : formattedDate
+      date: formattedDate,
+      complete: false
     };
     
     setTodoList([...todoList, newItem]) // 기존 todoList + inputValue
@@ -41,13 +42,21 @@ function App() {
     }
   }
   
-  //삭제
+  // 삭제
   const delItem = (id) => {
     setTodoList(todoList.filter(todoItem => todoItem.id !== id))
   }
+
+  // complete 상태 업데이트
+  const updateComplete = (id, complete) => {
+    setTodoList(todoList.map(item => item.id === id ? { ...item, complete } : item));
+  };
+
+  const incompleteCount = todoList.filter(item => !item.complete).length;
+
   return (
     <div className='box-line'>
-      <h1>{todoList.length > 0 ? `오늘의 할 일은 ${todoList.length}개 입니다. 🤓` : '오늘의 할 일은 뭔가요? 🤔'}</h1>
+      <h1>{incompleteCount > 0 ? `오늘의 할 일은 ${incompleteCount}개 입니다. 🤓` : '오늘의 할 일은 뭔가요? 🤔'}</h1>
       <div className='input-container'>
         {/* <input type='text' onChange={(event)=>console.log(event.target.value)}/> */}
         <input className='todo-input' value={inputValue} type='text' placeholder='오늘도 화이팅!' onChange={(e)=>setInputValue(e.target.value)} onKeyDown={(e)=>enterKey(e)}/>
@@ -55,7 +64,7 @@ function App() {
         <Button variant='contained' style={{backgroundColor: '#A6948D'}} onClick={addItem}>추가</Button>
       </div>
       <div className='list-container'>
-        <TodoBoard todoList={todoList} delItem={delItem}/>
+        <TodoBoard todoList={todoList} delItem={delItem} updateComplete={updateComplete}/>
       </div>
     </div>
   );

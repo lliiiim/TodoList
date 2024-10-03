@@ -7,15 +7,14 @@ import CompleteModal from './CompleteModal';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-function TodoItem({item, delItem}){
+function TodoItem({item, delItem, updateComplete}){
     // 체크박스
     const [checked, setChecked] = useState(false);
     
     const handleCheck = () => {
         setChecked(!checked);
         setOpenCheckModal(!checked);
-        
-        item.complete = !checked;
+        updateComplete(item.id, !checked);
     };
 
     // 체크 모달창
