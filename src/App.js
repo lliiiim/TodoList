@@ -31,7 +31,7 @@ function App() {
     };
     
     setTodoList([...todoList, newItem]) // 기존 todoList + inputValue
-    setInputValue(''); // 입력창 초기화
+    setInputValue('');
     
     nextId.current += 1; 
   }
@@ -59,7 +59,7 @@ function App() {
       <h1>{incompleteCount > 0 ? `오늘의 할 일은 ${incompleteCount}개 입니다. 🤓` : '오늘의 할 일은 뭔가요? 🤔'}</h1>
       <div className='input-container'>
         {/* <input type='text' onChange={(event)=>console.log(event.target.value)}/> */}
-        <input className='todo-input' value={inputValue} type='text' placeholder='오늘도 화이팅!' onChange={(e)=>setInputValue(e.target.value)} onKeyDown={(e)=>enterKey(e)}/>
+        <input className='todo-input' value={inputValue} type='text' placeholder='오늘도 화이팅!' onChange={(e)=>setInputValue(e.target.value)} onKeyUp={(e)=>enterKey(e)}/>
         {/* <button onClick={addItem}>추가</button> */}
         <Button variant='contained' style={{backgroundColor: '#A6948D'}} onClick={addItem}>추가</Button>
       </div>
